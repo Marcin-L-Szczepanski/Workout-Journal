@@ -1,4 +1,4 @@
-import exerciseCategories from "exercise-categories.js";
+import exerciseCategories from "./exercise-categories.js";
 
 const WorkoutJournal = (function() {
   const init = () => {
