@@ -32,17 +32,16 @@ const WorkoutJournal = (function() {
   const renderNewPlanPage = () => {
     const name = newElement("input");
     const exercisesList = newElement("div");
+    exercisesList.classList.add("exercises-list");
     const saveNewPlanBtn = newElement("button");
     saveNewPlanBtn.innerHTML = "Save Plan";
-
-    exercisesList.classList.add("exercises-list");
 
     exerciseCategories.forEach(category => {
       const exerciseDiv = newElement("div");
       const exerciseIcon = newElement("div");
 
       exerciseIcon.innerHTML = category.icon;
-      exerciseIcon.classList.add("exercise-icon");
+      exerciseIcon.classList.add("exercise__icon");
       exerciseDiv.addEventListener("click", () => {
         openNewPlanExercisePage(category);
       });

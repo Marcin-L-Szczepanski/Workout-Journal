@@ -43,3 +43,49 @@ body {
 .header {
   font-size: 30px;
 }
+
+.exercises-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.exercise {
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise__icon {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  margin: 15px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.exercise__name {
+  margin: 20px;
+  text-transform: capitalize;
+}
+
+.exercise-icon--complete {
+  background-color: white;
+}
+
+.exercise-icon--complete svg g path {
+  fill: black;
+}
+
+.exercise__set {
+  height: 30px;
+  color: grey;
+}
+
+.exercise__set--current {
+  color: white;
+  font-size: 20px;
+}
+.exercise__set--complete {
+  color: white;
+  text-decoration: line-through;
+}
