@@ -1,3 +1,5 @@
+"use strict";
+
 import $ from "./shorthand-functions.js";
 import exerciseCategories from "./exercise-categories.js";
 import renderNewPlanPage from "./render-new-plan-page.js";

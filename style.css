@@ -55,8 +55,10 @@ body {
 }
 
 .exercise__icon {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
+  max-width: 150px;
+  max-height: 150px;
   padding: 20px;
   margin: 15px;
   border: 2px solid white;
