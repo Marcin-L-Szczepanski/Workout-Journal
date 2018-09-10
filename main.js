@@ -1,4 +1,6 @@
 import exerciseCategories from "./exercise-categories.js";
+import renderNewPlanPage from "./render-new-plan-page.js";
+import $ from "./shorthand-functions.js";
 
 const WorkoutJournal = (function() {
   const init = () => {
@@ -6,27 +8,20 @@ const WorkoutJournal = (function() {
     bindEvents();
   };
 
-  // Shorthand functions
-  const get = element => document.getElementById(element);
-  const newElement = element => document.createElement(element);
-  const click = (element, action) => element.addEventListener("click", action);
-  const showPage = page => page.classList.remove("page--hidden");
-  const hidePage = page => page.classList.add("page--hidden");
-
   let DOM = {};
 
   const cacheDOM = () => {
-    DOM.createNewPlanBtn = get("create-plan-btn");
-    DOM.newPlanPage = get("new-plan-page");
+    DOM.createNewPlanBtn = $.get("create-plan-btn");
+    DOM.newPlanPage = $.get("new-plan-page");
   };
 
   const bindEvents = () => {
-    click(DOM.createNewPlanBtn, openNewPlanPage);
+    $.click(DOM.createNewPlanBtn, openNewPlanPage);
   };
 
   const openNewPlanPage = () => {
     renderNewPlanPage();
-    showPage(DOM.newPlanPage);
+    $.showPage(DOM.newPlanPage);
   };
 
   const renderNewPlanPage = () => {
