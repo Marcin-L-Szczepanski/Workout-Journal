@@ -6,7 +6,7 @@ const renderCategory = category => {
   const exerciseIcon = $.newElement("div");
 
   exerciseIcon.innerHTML = category.icon;
-  exerciseIcon.classList.add("exercise__icon");
+  exerciseIcon.classList.add("exercise__category");
   exerciseCategory.addEventListener("click", () => {
     openNewPlanExercisePage(category);
   });

@@ -54,7 +54,8 @@ body {
   flex-direction: column;
 }
 
-.exercise__icon {
+.exercise__category {
+  list-style-type: none;
   width: 100%;
   height: 100%;
   max-width: 150px;
