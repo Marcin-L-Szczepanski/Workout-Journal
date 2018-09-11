@@ -1,3 +1,5 @@
+import $ from "./shorthand-functions.js";
+
 const renderCategory = category => {
   const exerciseDiv = newElement("div");
   const exerciseIcon = newElement("div");
