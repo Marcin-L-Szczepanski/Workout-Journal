@@ -1,7 +1,6 @@
 "use strict";
 
 import $ from "./shorthand-functions.js";
-import exerciseCategories from "./exercise-categories.js";
 import renderNewPlanPage from "./pages/render-new-plan-page.js";
 
 const WorkoutJournal = (function() {
@@ -22,7 +21,7 @@ const WorkoutJournal = (function() {
   };
 
   const openNewPlanPage = () => {
-    renderNewPlanPage();
+    renderNewPlanPage(DOM.newPlanPage);
     $.showPage(DOM.newPlanPage);
   };
 

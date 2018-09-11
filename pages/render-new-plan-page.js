@@ -16,7 +16,7 @@ const renderCategory = category => {
   return exerciseDiv;
 };
 
-const renderNewPlanPage = () => {
+const renderNewPlanPage = newPlanPage => {
   const nameLabel = $.newElement("label");
   nameLabel.setAttribute("for", "name-input");
   const nameInput = $.newElement("input");
@@ -37,10 +37,10 @@ const renderNewPlanPage = () => {
     saveNewPlan(name);
   });
 
-  DOM.newPlanPage.appendChild(nameLabel);
-  DOM.newPlanPage.appendChild(nameInput);
-  DOM.newPlanPage.appendChild(exercisesList);
-  DOM.newPlanPage.appendChild(saveNewPlanBtn);
+  newPlanPage.appendChild(nameLabel);
+  newPlanPage.appendChild(nameInput);
+  newPlanPage.appendChild(exercisesList);
+  newPlanPage.appendChild(saveNewPlanBtn);
 };
 
 export default renderNewPlanPage;
