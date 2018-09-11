@@ -24,6 +24,8 @@ const renderNewPlanPage = newPlanPage => {
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("id", "name-input");
 
+  const exercisesListLabel = $.newElement("h3");
+  exercisesListLabel.innerHTML = "Select categories to add them to your plan";
   const exercisesList = $.newElement("ul");
   exercisesList.classList.add("exercises-list");
   const saveNewPlanBtn = $.newElement("button");
@@ -40,6 +42,7 @@ const renderNewPlanPage = newPlanPage => {
 
   newPlanPage.appendChild(nameLabel);
   newPlanPage.appendChild(nameInput);
+  newPlanPage.appendChild(exercisesListLabel);
   newPlanPage.appendChild(exercisesList);
   newPlanPage.appendChild(saveNewPlanBtn);
 };
