@@ -1,4 +1,4 @@
-import $ from "./shorthand-functions.js";
+import $ from "../shorthand-functions.js";
 
 const renderCategory = category => {
   const exerciseDiv = $.newElement("div");
