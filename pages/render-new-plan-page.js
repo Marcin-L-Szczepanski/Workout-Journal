@@ -2,7 +2,7 @@ import $ from "../shorthand-functions.js";
 import exerciseCategories from "../exercise-categories.js";
 
 const renderCategory = category => {
-  const exerciseDiv = $.newElement("div");
+  const exerciseCategory = $.newElement("li");
   const exerciseIcon = $.newElement("div");
 
   exerciseIcon.innerHTML = category.icon;
@@ -11,26 +11,27 @@ const renderCategory = category => {
     openNewPlanExercisePage(category);
   });
 
-  exerciseDiv.appendChild(exerciseIcon);
+  exercise.appendChild(exerciseIcon);
 
-  return exerciseDiv;
+  return exerciseCategory;
 };
 
 const renderNewPlanPage = newPlanPage => {
   const nameLabel = $.newElement("label");
   nameLabel.setAttribute("for", "name-input");
+  nameLabel.innerHTML = "Plan name:";
   const nameInput = $.newElement("input");
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("id", "name-input");
 
-  const exercisesList = $.newElement("div");
+  const exercisesList = $.newElement("ul");
   exercisesList.classList.add("exercises-list");
   const saveNewPlanBtn = $.newElement("button");
   saveNewPlanBtn.innerHTML = "Save Plan";
 
   exerciseCategories.forEach(category => {
-    let exerciseDiv = renderCategory(category);
-    exercisesList.appendChild(exerciseDiv);
+    let exerciseCategory = renderCategory(category);
+    exercisesList.appendChild(exerciseCategory);
   });
 
   saveNewPlanBtn.addEventListener("click", () => {
