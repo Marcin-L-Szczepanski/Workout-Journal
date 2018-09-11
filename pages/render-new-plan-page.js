@@ -12,7 +12,8 @@ const renderCategory = category => {
   });
 
   exerciseDiv.appendChild(exerciseIcon);
-  exercisesList.appendChild(exerciseDiv);
+
+  return exerciseDiv;
 };
 
 const renderNewPlanPage = () => {
@@ -28,7 +29,8 @@ const renderNewPlanPage = () => {
   saveNewPlanBtn.innerHTML = "Save Plan";
 
   exerciseCategories.forEach(category => {
-    renderCategory(category);
+    let exerciseDiv = renderCategory(category);
+    exercisesList.appendChild(exerciseDiv);
   });
 
   saveNewPlanBtn.addEventListener("click", () => {
