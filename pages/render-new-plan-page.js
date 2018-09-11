@@ -7,7 +7,7 @@ const renderCategory = category => {
 
   exerciseIcon.innerHTML = category.icon;
   exerciseIcon.classList.add("exercise__icon");
-  exerciseDiv.addEventListener("click", () => {
+  exerciseCategory.addEventListener("click", () => {
     openNewPlanExercisePage(category);
   });
 
