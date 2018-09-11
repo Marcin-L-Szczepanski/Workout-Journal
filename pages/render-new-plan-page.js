@@ -1,8 +1,8 @@
 import $ from "./shorthand-functions.js";
 
 const renderCategory = category => {
-  const exerciseDiv = newElement("div");
-  const exerciseIcon = newElement("div");
+  const exerciseDiv = $.newElement("div");
+  const exerciseIcon = $.newElement("div");
 
   exerciseIcon.innerHTML = category.icon;
   exerciseIcon.classList.add("exercise__icon");
@@ -15,15 +15,15 @@ const renderCategory = category => {
 };
 
 const renderNewPlanPage = () => {
-  const nameLabel = newElement("label");
+  const nameLabel = $.newElement("label");
   nameLabel.setAttribute("for", "name-input");
-  const nameInput = newElement("input");
+  const nameInput = $.newElement("input");
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("id", "name-input");
 
-  const exercisesList = newElement("div");
+  const exercisesList = $.newElement("div");
   exercisesList.classList.add("exercises-list");
-  const saveNewPlanBtn = newElement("button");
+  const saveNewPlanBtn = $.newElement("button");
   saveNewPlanBtn.innerHTML = "Save Plan";
 
   exerciseCategories.forEach(category => {
