@@ -11,7 +11,7 @@ const renderCategory = category => {
     openNewPlanExercisePage(category);
   });
 
-  exercise.appendChild(exerciseIcon);
+  exerciseCategory.appendChild(exerciseIcon);
 
   return exerciseCategory;
 };
