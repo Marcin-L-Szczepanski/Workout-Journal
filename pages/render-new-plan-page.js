@@ -1,20 +1,5 @@
-import $ from "../shorthand-functions.js";
-import exerciseCategories from "../exercise-categories.js";
-
-const renderCategory = category => {
-  const exerciseCategory = $.newElement("li");
-  const exerciseIcon = $.newElement("div");
-
-  exerciseCategory.classList.add("exercise__category");
-  exerciseIcon.innerHTML = category.icon;
-  exerciseCategory.addEventListener("click", () => {
-    openNewPlanExercisePage(category);
-  });
-
-  exerciseCategory.appendChild(exerciseIcon);
-
-  return exerciseCategory;
-};
+import $ from "../lib/shorthand-functions.js";
+import exerciseCategories from "../lib/exercise-categories.js";
 
 const renderNewPlanPage = newPlanPage => {
   const nameLabel = $.newElement("label");
@@ -25,7 +10,7 @@ const renderNewPlanPage = newPlanPage => {
   nameInput.setAttribute("id", "name-input");
 
   const exercisesListLabel = $.newElement("h3");
-  exercisesListLabel.innerHTML = "Select categories to add them to your plan";
+  exercisesListLabel.innerHTML = "Select exercises to add them to your plan";
   const exercisesList = $.newElement("ul");
   exercisesList.classList.add("exercises-list");
   const saveNewPlanBtn = $.newElement("button");
@@ -45,6 +30,26 @@ const renderNewPlanPage = newPlanPage => {
   newPlanPage.appendChild(exercisesListLabel);
   newPlanPage.appendChild(exercisesList);
   newPlanPage.appendChild(saveNewPlanBtn);
+};
+
+const renderCategory = category => {
+  const exerciseCategory = $.newElement("li");
+  const exerciseIcon = $.newElement("div");
+
+  exerciseCategory.classList.add("exercise__category");
+  exerciseIcon.innerHTML = category.icon;
+  exerciseCategory.addEventListener("click", () => {
+    openNewPlanExercisePage(category);
+  });
+
+  exerciseCategory.appendChild(exerciseIcon);
+
+  return exerciseCategory;
+};
+
+const openNewPlanExercisePage = exercise => {
+  renderNewPlanExercisePage(exercise);
+  $.showPage(DOM.exercisePage);
 };
 
 export default renderNewPlanPage;
