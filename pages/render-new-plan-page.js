@@ -1,5 +1,7 @@
 import $ from "../lib/shorthand-functions.js";
+import { DOM } from "../lib/DOM.js";
 import exerciseCategories from "../lib/exercise-categories.js";
+import renderNewPlanExercisePage from "../pages/render-new-plan-exercise-page.js";
 
 const renderNewPlanPage = newPlanPage => {
   const nameLabel = $.newElement("label");
