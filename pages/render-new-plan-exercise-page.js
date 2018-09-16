@@ -81,8 +81,10 @@ const renderNewPlanExercisePage = exercise => {
 
 let newPlanExercises = [];
 
-const saveExercise = newExercise => {
+export const saveExercise = newExercise => {
   newPlanExercises.push(newExercise);
+
+  return newPlanExercises;
 };
 
 export default renderNewPlanExercisePage;

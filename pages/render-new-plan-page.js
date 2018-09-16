@@ -2,6 +2,7 @@ import $ from "../lib/shorthand-functions.js";
 import { DOM } from "../lib/DOM.js";
 import exerciseCategories from "../lib/exercise-categories.js";
 import renderNewPlanExercisePage from "../pages/render-new-plan-exercise-page.js";
+import { saveExercise } from "../pages/render-new-plan-exercise-page.js";
 
 const renderNewPlanPage = newPlanPage => {
   const nameLabel = $.newElement("label");
@@ -24,7 +25,8 @@ const renderNewPlanPage = newPlanPage => {
   });
 
   saveNewPlanBtn.addEventListener("click", () => {
-    saveNewPlan(name);
+    console.log(nameInput);
+    saveNewPlan(nameInput);
   });
 
   newPlanPage.appendChild(nameLabel);
@@ -52,6 +54,18 @@ const renderCategory = category => {
 const openNewPlanExercisePage = exercise => {
   renderNewPlanExercisePage(exercise);
   $.showPage(DOM.exercisePage);
+};
+
+const saveNewPlan = name => {
+  let newPlanExercises = saveExercise();
+  console.log(newPlanExercises);
+  let newPlan = {};
+  newPlan.name = name.value;
+  newPlan.exercises = newPlanExercises;
+  newPlan = JSON.stringify(newPlan);
+  console.log(newPlan);
+  localStorage.setItem("plans", newPlan);
+  $.hidePage(DOM.newPlanPage);
 };
 
 export default renderNewPlanPage;
