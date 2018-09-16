@@ -12,6 +12,10 @@ body {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
   position: relative;
   width: 100vw;
