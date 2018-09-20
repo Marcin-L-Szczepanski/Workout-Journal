@@ -2,9 +2,12 @@ import $ from "../lib/shorthand-functions.js";
 import { DOM } from "../lib/DOM.js";
 import exerciseCategories from "../lib/exercise-categories.js";
 import renderNewPlanExercisePage from "../pages/render-new-plan-exercise-page.js";
-import { saveExercise } from "../pages/render-new-plan-exercise-page.js";
+import { readNewPlanExercises } from "../pages/render-new-plan-exercise-page.js";
+import { savedPlans } from "../lib/local-storage.js";
 
 const renderNewPlanPage = newPlanPage => {
+  DOM.newPlanPage.innerHTML = "";
+
   const nameLabel = $.newElement("label");
   nameLabel.setAttribute("for", "name-input");
   nameLabel.innerHTML = "Plan name:";
@@ -25,8 +28,8 @@ const renderNewPlanPage = newPlanPage => {
   });
 
   saveNewPlanBtn.addEventListener("click", () => {
-    console.log(nameInput);
     saveNewPlan(nameInput);
+    $.hidePage(DOM.newPlanPage);
   });
 
   newPlanPage.appendChild(nameLabel);
@@ -57,15 +60,26 @@ const openNewPlanExercisePage = exercise => {
 };
 
 const saveNewPlan = name => {
-  let newPlanExercises = saveExercise();
-  console.log(newPlanExercises);
+  let storagePlans;
+  if (savedPlans() !== null) {
+    storagePlans = JSON.parse(savedPlans());
+  } else {
+    storagePlans = [];
+  }
+
+  let newPlanExercises = readNewPlanExercises();
   let newPlan = {};
   newPlan.name = name.value;
   newPlan.exercises = newPlanExercises;
   newPlan = JSON.stringify(newPlan);
-  console.log(newPlan);
-  localStorage.setItem("plans", newPlan);
-  $.hidePage(DOM.newPlanPage);
+  storagePlans.push(newPlan);
+  localStorage.plans = JSON.stringify(storagePlans);
+  if (storagePlans.length === 1) {
+    DOM.startWorkoutBtn.classList.remove("hidden");
+  } else {
+    DOM.startWorkoutBtn.classList.add("hidden");
+    DOM.selectWorkoutBtn.classList.remove("hidden");
+  }
 };
 
 export default renderNewPlanPage;
